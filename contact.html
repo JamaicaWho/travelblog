@@ -1,0 +1,122 @@
+<!doctype html> 
+<html lang="en"> 
+<head> 
+  <meta charset="utf-8" /> 
+  <meta name="viewport" content="width=device-width,initial-scale=1" /> 
+  <title>Contact — Wanderly</title> 
+  <link rel="stylesheet" href="styles.css" /> 
+
+  <style>
+    /* 🔹 Moving background image */
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      color: white;
+      background: url("https://uploads.onecompiler.io/439puaant/43tuc5egk/videoframe_29448.png") repeat-x;
+      background-size: 150% auto;
+      animation: moveBg 60s linear infinite;
+    }
+
+    @keyframes moveBg {
+      from { background-position: 0 50%; }
+      to   { background-position: -2000px 50%; }
+    }
+
+    /* 🔹 Smooth hover/focus transitions */
+    h1, p, a, label, input, textarea, button {
+      transition: all 0.3s ease-in-out;
+    }
+
+    a:hover { transform: scale(1.03); letter-spacing: 0.5px; }
+    input:focus, textarea:focus { transform: scale(1.02); outline: none; }
+    .btn-primary:hover, .btn-ghost:hover { transform: scale(1.05); }
+
+    /* 🔹 Fade-in text transitions (like hero example) */
+    .contact-section h1,
+    .contact-section p,
+    .contact-section form {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: all 1s ease;
+    }
+
+    .contact-section.show h1,
+    .contact-section.show p,
+    .contact-section.show form {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* Staggered timing */
+    .contact-section.show h1 { transition-delay: 0.2s; }
+    .contact-section.show p  { transition-delay: 0.5s; }
+    .contact-section.show form { transition-delay: 0.8s; }
+  </style>
+</head> 
+<body> 
+
+  <header class="site-header"> 
+    <div class="container header-inner"> 
+      <a class="brand" href="index.html">Esnupi</a> 
+      <nav class="nav"> 
+        <ul> 
+          <li><a href="index.html" >Home</a></li> 
+          <li><a href="stories.html" >Latest Post</a></li> 
+          <li><a href="destinations.html">Destinations</a></li> 
+          <li><a href="about.html">About</a></li> 
+          <li><a href="contact.html" class="active btn-outline">Contact</a></li> 
+        </ul> 
+      </nav> 
+      <button class="nav-toggle" id="navToggleContact" aria-label="Open menu"><span></span><span></span><span></span></button> 
+    </div> 
+  </header> 
+
+  <main> 
+    <section class="container section contact-section"> 
+      <h1>Contact</h1> 
+      <p class="lead">Have questions, story ideas, or partnership inquiries? Drop us a message.</p> 
+
+      <form class="contact-form" onsubmit="event.preventDefault(); alert('Message sent — thanks!');"> 
+        <div class="form-grid"> 
+          <label> Name 
+            <input type="text" required> 
+          </label> 
+          <label> Email 
+            <input type="email" required> 
+          </label> 
+        </div> 
+
+        <label> Subject 
+          <input type="text"> 
+        </label> 
+
+        <label> Message 
+          <textarea rows="6" required></textarea> 
+        </label> 
+
+        <div class="form-actions"> 
+          <button class="btn-primary">Send Message</button> 
+          <button class="btn-ghost" type="reset">Reset</button> 
+        </div> 
+      </form> 
+    </section> 
+  </main> 
+
+  <footer class="site-footer"> 
+    <div class="container footer-grid"> 
+      <div><a class="brand" href="index.html">Esnupi</a><p>© <span id="year4"></span> Esnupi</p></div> 
+      <div class="footer-links"><a href="about.html">About</a><a href="destinations.html">Destinations</a></div> 
+    </div> 
+  </footer> 
+
+  <script>document.getElementById('year4').textContent = new Date().getFullYear();</script> 
+  <script src="script.js"></script> 
+
+  <script>
+    // 🔹 Trigger fade-in once page loads
+    window.addEventListener("load", () => {
+      document.querySelector(".contact-section").classList.add("show");
+    });
+  </script>
+</body> 
+</html>
