@@ -1,0 +1,121 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>About — Esnupi</title>
+  <link rel="stylesheet" href="styles.css" />
+  <style>
+    /* Moving background */
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      color: white;
+      background: url('https://uploads.onecompiler.io/439puaant/43tuc5egk/videoframe_29448.png') repeat-x;
+      background-size: cover;
+      animation: moveBg 40s linear infinite;
+    }
+
+    @keyframes moveBg {
+      from { background-position: 0 0; }
+      to { background-position: -3000px 0; }
+    }
+
+    /* Add dark overlay for readability */
+    body::before {
+      content: "";
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background: rgba(0, 0, 0, 0.5);
+      z-index: -1;
+    }
+
+    .section, .site-header, .site-footer {
+      position: relative;
+      z-index: 1;
+    }
+
+    /* --- TEXT TRANSITION --- */
+    .section h1,
+    .section p,
+    .section h3,
+    .section li {
+      opacity: 0;
+      transform: translateY(20px) scale(0.95);
+      transition: all 0.8s ease;
+    }
+    .section.show h1,
+    .section.show p,
+    .section.show h3,
+    .section.show li {
+      opacity: 1;
+      transform: translateY(0) scale(1);
+    }
+    .section.show h1 { transition-delay: 0.2s; }
+    .section.show .lead { transition-delay: 0.4s; }
+    .section.show h3:nth-of-type(1) { transition-delay: 0.6s; }
+    .section.show h3:nth-of-type(2) { transition-delay: 0.8s; }
+    .section.show p:not(.lead) { transition-delay: 1s; }
+    .section.show li:nth-child(1) { transition-delay: 1.2s; }
+    .section.show li:nth-child(2) { transition-delay: 1.4s; }
+    .section.show li:nth-child(3) { transition-delay: 1.6s; }
+    .section.show li:nth-child(4) { transition-delay: 1.8s; }
+  </style>
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="brand" href="index.html">Esnupi</a>
+      <nav class="nav">
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="stories.html">Latest Post</a></li>
+          <li><a href="destinations.html">Destinations</a></li>
+          <li><a href="about.html" class="active">About</a></li>
+          <li><a href="contact.html" class="btn-outline">Contact</a></li>
+        </ul>
+      </nav>
+      <button class="nav-toggle" id="navToggleAbout" aria-label="Open menu"><span></span><span></span><span></span></button>
+    </div>
+  </header>
+
+  <main>
+    <section class="container section">
+      <h1>About Esnupi</h1>
+      <p class="lead">We’re a small team of travelers sharing practical guides, honest reviews, and creative travel stories. Founded in 2023, our goal is to make travel accessible, sustainable, and unforgettable.</p>
+
+      <div class="two-cols">
+        <div>
+          <h3>Our Mission</h3>
+          <p>To inspire and equip travelers with trustworthy advice, curated itineraries, and tips to travel smarter — whether on a shoestring or in style.</p>
+        </div>
+        <div>
+          <h3>What we cover</h3>
+          <ul class="simple-list">
+            <li>Itineraries & packing lists</li>
+            <li>Food guides & local culture</li>
+            <li>Responsible and sustainable travel</li>
+            <li>Budget and luxury tips</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-grid">
+      <div><a class="brand" href="index.html">Esnupi</a><p>© <span id="year2"></span> Esnupi</p></div>
+      <div class="footer-links"><a href="destinations.html">Destinations</a><a href="contact.html">Contact</a></div>
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById('year2').textContent = new Date().getFullYear();
+    window.addEventListener("load", () => {
+      document.querySelector(".section").classList.add("show");
+    });
+  </script>
+  <script src="script.js"></script>
+</body>
+</html>
