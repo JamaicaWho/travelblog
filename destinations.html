@@ -1,0 +1,479 @@
+
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Destinations — Esnupi</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+   <style>
+   
+    .hidden-text {
+      display: none;
+      margin-top: 10px;
+      color: #333;
+    }
+    .btn {
+      background-color: #4f46e5;
+      color: white;
+      border: none;
+      padding: 8px 14px;
+      border-radius: 6px;
+      cursor: pointer;
+      font-size: 14px;
+    }
+    .btn:hover {
+      background-color: #3730a3;
+    }
+ .stop-all {
+      background-color: #4f46e5;
+      color: white;
+      border: none;
+      padding: 8px 13px;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 13px;
+    }
+    
+  </style>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="brand" href="index.html">Esnupi</a>
+      <nav class="nav">
+        <ul>
+            <li><a href="index.html" >Home</a></li>
+         <li><a href="stories.html" >Latest Post</a></li>
+         <li><a href="destinations.html" class="active">Destinations</a></li>
+         <li><a href="about.html">About</a></li>
+          <li><a href="contact.html" class="btn-outline">Contact</a></li>
+        </ul>
+      </nav>
+      <button class="nav-toggle" id="navToggleDest" aria-label="Open menu"><span></span><span></span><span></span></button>
+    </div>
+  </header>
+
+  <main>
+    <section class="container section">
+      <h1>Destinations</h1>
+      <p class="lead">Handpicked places to visit across Asia and beyond — with itineraries, costs, and insider tips.</p>
+
+      <!-- Filter Buttons -->
+      <div class="filters">
+        
+        <button class="chip active" data-filter="all">All</button>
+        <button class="chip" data-filter="beach">Beaches</button>
+        <button class="chip" data-filter="city">City</button>
+        <button class="chip" data-filter="cultural">Cultural</button>
+        <button class="chip" data-filter="nature">Nature</button>
+         <button class="stop-all" id="stopAll">Stop All Music</button>
+
+      </div>
+
+      <script>
+    // Music files for each filter
+    const musicMap = {
+      "all": "music/all.mp3",
+      "beach": "https://uploads.onecompiler.io/439puaant/43tuc5egk/Hawaiian%20Roller%20Coaster%20Ride%20(Instrumental).mp3",
+      "city": "https://uploads.onecompiler.io/439puaant/43tuc5egk/The%20City's%20Yours%20Karaoke%20by%20Jamie%20Foxx%20and%20Quvenzhan%C3%A9%20Wallis.mp3",
+      "cultural": "https://uploads.onecompiler.io/439puaant/43tuc5egk/Salidumay,%20Elalay%20and%20Ragragsakan%20%20(Instruments).mp3",
+      "nature": "https://uploads.onecompiler.io/439puaant/43tuc5egk/AURORA%20-%20Runaway%20%5BOfficial%20Instrumental%5D.mp3"
+    };
+  let currentAudio = null; // Track currently playing song
+
+    // Get all filter buttons
+    const chips = document.querySelectorAll(".chip");
+
+    chips.forEach(chip => {
+      chip.addEventListener("click", () => {
+        // Stop current audio if playing
+        if (currentAudio) {
+          currentAudio.pause();
+          currentAudio.currentTime = 0;
+        }
+
+        // Remove active class from all and add to clicked one
+        chips.forEach(c => c.classList.remove("active"));
+        chip.classList.add("active");
+
+        const filter = chip.dataset.filter;
+        const musicFile = musicMap[filter];
+
+        // Play new audio
+        currentAudio = new Audio(musicFile);
+        currentAudio.play();
+      });
+    });
+
+    // Stop all music button
+    document.getElementById("stopAll").addEventListener("click", () => {
+      if (currentAudio) {
+        currentAudio.pause();
+        currentAudio.currentTime = 0;
+        currentAudio = null;
+      }
+      
+    });
+  </script>
+      <!-- Destination Cards -->
+      <div class="grid-cards">
+
+        <!-- BEACHES (10) -->  
+    <source src="https://uploads.onecompiler.io/439puaant/43tuc5egk/Hawaiian%20Roller%20Coaster%20Ride%20(Instrumental).mp3" type="audio/mpeg">
+   
+        <article class="dest-card" data-category="beach">
+            <img src="https://uploads.onecompiler.io/439puaant/43tuc5egk/86ace1b304a4de651eee81804bedd1b1.jpg" alt="Bali Beach">
+            <div class="dest-body"><h3>Bali, Indonesia</h3> 
+            <p> This is some visible text<span id="dots">...</span>
+            <span id="more" class="hidden-text">  Here is the hidden part of the paragraph that will only 
+            how when you click "See more". You can put as much text here as you want!
+            </span>
+            </p>  
+            <a href="https://en.wikipedia.org/wiki/Bali" target="_blank">Learn more here</a>.
+            </p>
+    
+  </p></div>
+        </article>
+        <article class="dest-card" data-category="beach">
+          <img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e" alt="Palawan Beach">
+          <div class="dest-body"><h3>Palawan, Philippines</h3><p>Crystal-clear lagoons and dramatic limestone cliffs.</p></div>
+        </article>
+        <article class="dest-card" data-category="beach"><img src="https://uploads.onecompiler.io/439puaant/43tuc5egk/9e6fffb5f52e75b298f04959a0bd0185.jpg" alt="Boracay"><div class="dest-body"><h3>Boracay, Philippines</h3>
+       
+<p>
+    Boracay, Philippines, is a world-renowned tropical island paradise famous for its powdery white sand beaches, crystal-clear turquoise waters, and vibrant nightlife. <span id="dots">...</span>
+    <span id="more" class="hidden-text">
+      Located in the Western Visayas, it offers a perfect blend of relaxation and adventure, with activities such as island hopping, kite surfing, diving, and parasailing. By day, visitors can enjoy the breathtaking scenery and laid-back island vibe, while by night, the beachfront comes alive with lively bars, restaurants, and fire dancing shows. Known especially for White Beach—often ranked among the best in the world—Boracay is a must-visit destination for travelers seeking both natural beauty and an unforgettable island experience.
+    </span>
+</p>  
+        <a href="https://en.wikipedia.org/wiki/Boracay" target="_blank">Learn more here</a>.
+        </p></p></div></article>
+        
+        <article class="dest-card" data-category="beach"><img src="https://uploads.onecompiler.io/439puaant/43tuc5egk/kaanapali-beach-01.BESTMAUIBEACH19jpg-f98ea33842274ab18f210bf9106e1d44.jpg" alt="Maui"><div class="dest-body"><h3>Maui, Hawaii</h3><p>
+    Boracay, Philippines, is a world-renowned tropical island paradise famous for its powdery white sand beaches, crystal-clear turquoise waters, and vibrant nightlife. <span id="dots">...</span>
+    <span id="more" class="hidden-text">
+      Located in the Western Visayas, it offers a perfect blend of relaxation and adventure, with activities such as island hopping, kite surfing, diving, and parasailing. By day, visitors can enjoy the breathtaking scenery and laid-back island vibe, while by night, the beachfront comes alive with lively bars, restaurants, and fire dancing shows. Known especially for White Beach—often ranked among the best in the world—Boracay is a must-visit destination for travelers seeking both natural beauty and an unforgettable island experience.
+   </span>
+</p>    <a href="https://en.wikipedia.org/wiki/Maui" target="_blank">Learn more here</a>.
+        </p></p></div></article>
+        <article class="dest-card" data-category="beach"><img src="https://uploads.onecompiler.io/439puaant/43tuc5egk/47dcbf64ee9ceca1652be1d1f0e94b3f.jpg" alt="Phuket"><div class="dest-body"><h3>Phuket, Thailand</h3> 
+      <p>
+   Phuket, Thailand’s largest island, is a tropical haven famous for its stunning beaches, vibrant nightlife, and rich cultural heritage.  <span id="dots">...</span>
+    <span id="more" class="hidden-text">
+      Surrounded by the crystal-clear waters of the Andaman Sea, it offers everything from the lively shores of Patong Beach to the serene beauty of Kata and Karon. Visitors can explore bustling street markets, enjoy world-class diving and snorkeling, or take a boat trip to the nearby Phi Phi Islands and Phang Nga Bay. Beyond its beaches, Phuket also showcases ornate temples, delicious Thai cuisine, and traditional festivals, making it a destination that blends relaxation, adventure, and cultural discovery.
+    </span>
+</p>  
+  <a href="https://en.wikipedia.org/wiki/Phuket_province" target="_blank">Learn more here</a>.
+        </p></div></article>
+        <article class="dest-card" data-category="beach"><img src="https://uploads.onecompiler.io/439puaant/43tuc5egk/b17fccab5a3de90f7a5bcc9a22c33aed.jpg" alt="Maldives"><div class="dest-body"><h3>Maldives</h3>
+      
+<p>
+The Maldives, a tropical paradise in the Indian Ocean, is renowned for its overwater villas, crystal-clear lagoons, and pristine white-sand beaches.  <span id="dots">...</span>
+    <span id="more" class="hidden-text">
+     Comprising over a thousand coral islands grouped into atolls, it offers some of the world’s best diving and snorkeling experiences, with vibrant coral reefs and abundant marine life. Famous for its luxury resorts and romantic escapes, the Maldives is also a haven for relaxation, where visitors can unwind in secluded settings surrounded by turquoise waters. With breathtaking sunsets, serene beauty, and unmatched tranquility, the Maldives is a dream destination for honeymooners, adventurers, and anyone seeking an idyllic island escape.
+    </span>
+</p>  
+           <a href="https://en.wikipedia.org/wiki/Maldives" target="_blank">Learn more here</a>.
+</p></div></article>
+        <article class="dest-card" data-category="beach"><img src="https://uploads.onecompiler.io/439puaant/43tuc5egk/2e4267e903c92d25e2c1a9158201cf3a.jpg" alt="Seychelles"><div class="dest-body"><h3>Seychelles</h3> <p>
+    This is some visible text<span id="dots">...</span>
+    <span id="more" class="hidden-text">
+      Here is the hidden part of the paragraph that will only show when you click "See more".  
+      You can put as much text here as you want!
+    </span>
+</p>  
+     <a href="https://en.wikipedia.org/wiki/Bali" target="_blank">Learn more here</a>.
+</p></div></article>
+        <article class="dest-card" data-category="beach"><img src="https://uploads.onecompiler.io/439puaant/43tuc5egk/e4b9eefe3afaf55dd962c49a38476f45.jpg" alt="Santorini"><div class="dest-body"><h3>Santorini, Greece</h3><p>
+Santorini is a famous island in Greece, part of the Cyclades group in the Aegean Sea, best known for its stunning sunsets, whitewashed houses with blue-domed roofs, and dramatic cliffs overlooking the caldera.
+   <span id="dots"> ...</span>
+    <span id="more" class="hidden-text">
+ The island was formed by a volcanic eruption thousands of years ago, which shaped its unique crescent shape and left behind a breathtaking landscape. Today, Santorini is a top travel destination, attracting millions of visitors each year for its romantic atmosphere, crystal-clear waters, beautiful beaches with red and black sands, and traditional Greek culture. It is also known for its wine production, particularly the Assyrtiko grape, which grows in the island’s volcanic soil.
+
+
+ </span>
+</p><a href="https://en.wikipedia.org/wiki/Santorini" target="_blank">Learn more here</a>.</p></div></article>
+        <article class="dest-card" data-category="beach"><img src="https://uploads.onecompiler.io/439puaant/43tuc5egk/988f39abba80f2060a1732127bac4953.jpg" alt="Cancun"><div class="dest-body"><h3>Cancún, Mexico</h3><p>
+Cancún is a world-renowned resort city located in the state of Quintana Roo on Mexico’s Yucatán Peninsula, along the Caribbean Sea.
+   <span id="dots"> ...</span>
+    <span id="more" class="hidden-text">
+ It is famous for its white sandy beaches, turquoise waters, vibrant nightlife, and luxury resorts that attract millions of tourists every year. Originally a small fishing village, Cancún was developed in the 1970s into a major tourist destination and is now considered one of the top vacation spots in the world. Beyond its modern hotels and entertainment, Cancún also offers access to rich Mayan culture and history, with nearby archaeological sites such as Chichén Itzá and Tulum. It is also a gateway to natural wonders like cenotes (underground freshwater pools) and the Mesoamerican Barrier Reef, making it popular for snorkeling and diving.
+
+
+ </span>
+</p> <a href="https://en.wikipedia.org/wiki/Cancún, Mexico" target="_blank">Learn more here</a>.
+</p></div></article>
+        <article class="dest-card" data-category="beach"><img src="https://uploads.onecompiler.io/439puaant/43tuc5egk/3072d6b32478c93d0e46abbb9737688e.jpg" alt="Gold Coast"><div class="dest-body"><h3>Gold Coast, Australia</h3><p>
+The Gold Coast is a coastal city in Queensland, Australia, well known for its long stretches of golden sandy beaches, world-class surfing spots, and vibrant tourism industry.
+   <span id="dots"> ...</span>
+    <span id="more" class="hidden-text">
+ It is one of Australia’s most popular holiday destinations, offering a mix of natural beauty and modern attractions. The city is famous for its high-rise skyline by the beach, theme parks such as Dreamworld and Sea World, and lush hinterlands with rainforests, waterfalls, and wildlife. With its warm climate, energetic nightlife, and major events, the Gold Coast attracts both local and international visitors year-round. It is also a growing hub for business, film production, and education, making it more than just a tourist hotspot.
+
+ </span>
+</p><a href="https://en.wikipedia.org/wiki/Gold Coast" target="_blank">Learn more here</a>.
+</p></div></article>
+<!-- CITY (10) -->
+        <article class="dest-card" data-category="city"><img src="https://uploads.onecompiler.io/43u2wz3qr/43u2w48v5/02f32158165f5fa5224aeafbba9b56fc.jpg" alt="Seoul"><div class="dest-body"><h3>Seoul, South Korea</h3><p>
+Seoul is the capital and largest city of South Korea, known as a dynamic metropolis where modern innovation meets deep-rooted tradition.
+   <span id="dots"> ...</span>
+    <span id="more" class="hidden-text">
+ It is a global hub for technology, fashion, and entertainment, particularly famous for K-pop, K-dramas, and cutting-edge digital culture. At the same time, Seoul preserves its rich history through ancient palaces, temples, and traditional markets, such as Gyeongbokgung Palace and Namdaemun Market. The city is built along the Han River and surrounded by mountains, offering both urban energy and natural beauty. With its efficient public transportation, bustling shopping districts like Myeongdong, and diverse culinary scene, Seoul stands as a city that blends heritage and modern lifestyle seamlessly.
+
+ </span>
+</p><a href="https://en.wikipedia.org/wiki/Seoul" target="_blank">Learn more here</a>.
+</p></p></div></article>
+        <article class="dest-card" data-category="city"><img src="https://uploads.onecompiler.io/43u2wz3qr/43u2w48v5/tokyo.jpg" alt="Tokyo"><div class="dest-body"><h3>Tokyo, Japan</h3><p><p>
+Tokyo is the capital city of Japan and one of the most populous and influential metropolitan areas in the world.
+   <span id="dots"> ...</span>
+    <span id="more" class="hidden-text">
+ It is a vibrant center of culture, technology, finance, and entertainment, blending futuristic skyscrapers, neon-lit streets, and advanced infrastructure with centuries-old temples, shrines, and traditional gardens. Known for its unique mix of modern innovation and Japanese heritage, Tokyo offers iconic landmarks such as the Tokyo Tower, Shibuya Crossing, and the historic Asakusa district. The city is also celebrated for its cuisine, ranging from world-class sushi to diverse street food. With its efficient public transport, shopping hubs like Shinjuku and Harajuku, and a reputation for safety and cleanliness, Tokyo stands out as a city that represents both tradition and cutting-edge modernity.
+
+ </span>
+</p><a href="https://en.wikipedia.org/wiki/Tokyo" target="_blank">Learn more here</a>.</p></div></article>
+        <article class="dest-card" data-category="city"><img src="https://uploads.onecompiler.io/43u2wz3qr/43u2w48v5/paris.jpg" alt="Paris"><div class="dest-body"><h3>Paris, France</h3><p>
+Paris is the capital city of France and one of the most famous and visited cities in the world, often called the “City of Light” for its role in the Age of Enlightenment and its dazzling nighttime scenery.
+   <span id="dots"> ...</span>
+    <span id="more" class="hidden-text">
+ Renowned for its art, fashion, architecture, and romance, Paris is home to iconic landmarks such as the Eiffel Tower, the Louvre Museum, and the Cathedral of Notre-Dame. The city is also celebrated for its café culture, charming streets, and exquisite cuisine, from croissants and pastries to fine dining. Situated along the River Seine, Paris blends historic charm with modern sophistication, making it a cultural and intellectual hub that continues to inspire artists, writers, and travelers from around the globe.
+
+ </span>
+</p><a href="https://en.wikipedia.org/wiki/Paris" target="_blank">Learn more here</a>.</p></div></article>
+        <article class="dest-card" data-category="city"><img src="https://uploads.onecompiler.io/43u2wz3qr/43u2w48v5/new%20york.jpg" alt="New York"><div class="dest-body"><h3>New York City, USA</h3><p>
+New York City, often simply called New York, is the largest city in the United States and one of the most influential cities in the world.
+   <span id="dots"> ...</span>
+    <span id="more" class="hidden-text">
+ Known as “The City That Never Sleeps,” it is a global center for finance, culture, fashion, and media. Located in the state of New York, the city is made up of five boroughs: Manhattan, Brooklyn, Queens, The Bronx, and Staten Island. It is famous for landmarks such as Times Square, the Statue of Liberty, Central Park, and the Empire State Building, as well as for its Broadway theaters and diverse neighborhoods. With its fast-paced lifestyle, vibrant arts scene, and multicultural population, New York represents both the energy and diversity of modern urban life.
+
+ </span>
+</p><a href="https://en.wikipedia.org/wiki/New York City" target="_blank">Learn more here</a>.</p></div></article>
+        <article class="dest-card" data-category="city"><img src="https://uploads.onecompiler.io/43u2wz3qr/43u2w48v5/london.jpg" alt="London"><div class="dest-body"><h3>London, UK</h3><p><p>
+London is the capital of the United Kingdom and one of the world’s most historic and cosmopolitan cities, blending centuries of tradition with modern innovation.
+   <span id="dots"> ...</span>
+    <span id="more" class="hidden-text">
+ Situated along the River Thames, London is known for its iconic landmarks such as the Tower of London, Buckingham Palace, Big Ben, and the London Eye. It is a global hub for finance, politics, arts, and culture, with world-class institutions like the British Museum, the National Gallery, and the West End theater district. The city is also celebrated for its diverse population, rich literary and musical heritage, and vibrant neighborhoods that showcase cultures from around the globe. With its mix of royal history, architectural marvels, and modern attractions, London remains one of the most visited and influential cities in the world.
+
+ </span>
+</p><a href="https://en.wikipedia.org/wiki/London" target="_blank">Learn more here</a>.</p></div></article>
+        <article class="dest-card" data-category="city"><img src="https://uploads.onecompiler.io/43u2wz3qr/43u2w48v5/singapore.jpg" alt="Singapore"><div class="dest-body"><h3>Singapore</h3><p>
+Singapore is a modern city-state in Southeast Asia, known for its rapid development, cleanliness, and reputation as a global financial hub.
+   <span id="dots"> ...</span>
+    <span id="more" class="hidden-text">
+ Located at the crossroads of major international trade routes, it has grown into one of the world’s most prosperous and efficient cities. Despite its small size, Singapore is celebrated for its cultural diversity, blending Chinese, Malay, Indian, and Western influences in its food, festivals, and traditions. The city is famous for landmarks such as Marina Bay Sands, Gardens by the Bay, and the Merlion, as well as its lush green spaces and innovative urban planning. With its strong economy, excellent infrastructure, and vibrant multicultural identity, Singapore stands as a leading example of progress and modern living.
+
+ </span>
+</p>.<a href="https://en.wikipedia.org/wiki/Singapore" target="_blank">Learn more here</a>.</p></div></article>
+        <article class="dest-card" data-category="city"><img src="https://uploads.onecompiler.io/43u2wz3qr/43u2w48v5/dubai.jpg" alt="Dubai"><div class="dest-body"><h3>Dubai, UAE</h3><p>
+Dubai is the largest city in the United Arab Emirates (UAE) and a global hub for tourism, trade, and innovation.
+   <span id="dots"> ...</span>
+    <span id="more" class="hidden-text">
+ Once a small desert settlement, Dubai has transformed in just a few decades into a modern metropolis known for its futuristic skyline, luxury shopping, and world-class attractions. The city is home to iconic landmarks such as the Burj Khalifa, the world’s tallest building, the Palm Jumeirah, and the Dubai Mall. It is also celebrated for its mix of tradition and modernity, where souks and cultural heritage sites exist alongside cutting-edge architecture and entertainment. With its year-round sunshine, international business scene, and reputation for luxury and ambition, Dubai has become one of the most dynamic and influential cities in the world.
+
+ </span>
+</p><a href="https://en.wikipedia.org/wiki/Dubai" target="_blank">Learn more here</a>.</p></div></article>
+        <article class="dest-card" data-category="city"><img src="https://uploads.onecompiler.io/43u2wz3qr/43u2w48v5/hong%20kong.jpg" alt="Hong Kong"><div class="dest-body"><h3>Hong Kong</h3><p>
+Hong Kong is a vibrant city and special administrative region of China, known for its impressive skyline, bustling harbor, and unique blend of Eastern and Western cultures.
+   <span id="dots"> ...</span>
+    <span id="more" class="hidden-text">
+ Located on the southern coast of China, it has long been a major financial and trading hub, attracting businesses and travelers from around the globe. The city is famous for landmarks such as Victoria Harbour, Victoria Peak, and the bustling districts of Central, Mong Kok, and Tsim Sha Tsui. Hong Kong also showcases a rich cultural mix, with traditional temples, street markets, and Cantonese cuisine alongside modern shopping malls and skyscrapers. With its fast-paced lifestyle, efficient public transport, and reputation as a “gateway to Asia,” Hong Kong stands as one of the most dynamic and influential cities in the world.
+
+ </span>
+</p><a href="https://en.wikipedia.org/wiki/Hong Kong" target="_blank">Learn more here</a>.</p></div></article>
+        <article class="dest-card" data-category="city"><img src="https://uploads.onecompiler.io/43u2wz3qr/43u2w48v5/rome1.jpg" alt="Rome"><div class="dest-body"><h3>Rome, Italy</h3><p>
+Rome is the capital city of Italy and one of the most historic and influential cities in the world, often called the “Eternal City.”
+   <span id="dots"> ...</span>
+    <span id="more" class="hidden-text">
+ With a history spanning more than 2,500 years, Rome was the heart of the powerful Roman Empire, which shaped much of Western civilization. Today, the city is a living museum, home to ancient landmarks such as the Colosseum, the Roman Forum, and the Pantheon, alongside Renaissance masterpieces like St. Peter’s Basilica and the Sistine Chapel in Vatican City. Beyond its history, Rome is also a lively modern capital, known for its charming piazzas, authentic Italian cuisine, and vibrant street life. Blending ancient heritage with contemporary culture, Rome remains a symbol of art, history, religion, and timeless beauty.
+
+ </span>
+</p><a href="https://en.wikipedia.org/wiki/Rome" target="_blank">Learn more here</a>.</p></div></article>
+        <article class="dest-card" data-category="city"><img src="https://uploads.onecompiler.io/43u2wz3qr/43u2w48v5/bangkok.jpg" alt="Bangkok"><div class="dest-body"><h3>Bangkok, Thailand</h3><p>
+Bangkok is the capital city of Thailand and one of the most vibrant and bustling cities in Southeast Asia, known for its mix of tradition and modernity.
+   <span id="dots"> ...</span>
+    <span id="more" class="hidden-text">
+ Situated along the Chao Phraya River, Bangkok is famous for its ornate temples, such as Wat Arun and Wat Phra Kaew, which houses the Emerald Buddha, as well as its grand Royal Palace. The city is also celebrated for its lively street life, floating markets, and world-renowned street food that reflects Thailand’s rich culinary heritage. Beyond its cultural sites, Bangkok is a modern metropolis with skyscrapers, luxury shopping malls, and a dynamic nightlife. With its warm hospitality, blend of old and new, and role as Thailand’s economic and cultural hub, Bangkok attracts millions of visitors from around the world every year.
+
+ </span>
+</p>.<a href="https://en.wikipedia.org/wiki/Bangkok" target="_blank">Learn more here</a>.</p></div></article>
+       
+       <!-- CULTURAL (10) -->
+        <article class="dest-card" data-category="cultural"><img src="https://uploads.onecompiler.io/43u2wz3qr/43u2w48v5/kyoto.jpg" alt="Kyoto"><div class="dest-body"><h3>Kyoto, Japan</h3><p>
+Kyoto is a historic city in Japan, once the nation’s imperial capital for over a thousand years, and is renowned as the cultural heart of the country.
+   <span id="dots"> ...</span>
+    <span id="more" class="hidden-text">
+ Unlike the bustling modern energy of Tokyo, Kyoto is known for its traditional charm, with hundreds of ancient temples, Shinto shrines, and beautifully preserved wooden houses. The city is famous for landmarks such as Kinkaku-ji (the Golden Pavilion), Fushimi Inari Taisha with its thousands of red torii gates, and its serene Zen gardens and tea houses. Kyoto is also celebrated for its seasonal beauty, from cherry blossoms in spring to colorful autumn leaves, as well as its cultural traditions like geisha performances and kaiseki dining. Blending history, spirituality, and elegance, Kyoto offers a glimpse into Japan’s timeless heritage.
+
+ </span>
+</p><a href="https://en.wikipedia.org/wiki/Kyoto" target="_blank">Learn more here</a>.</p></div></article>
+        <article class="dest-card" data-category="cultural"><img src="https://uploads.onecompiler.io/43u2wz3qr/43u2w48v5/egypt.jpg" alt="Cairo"><div class="dest-body"><h3>Cairo, Egypt</h3><p>
+Cairo is the capital of Egypt and the largest city in the Arab world, often called the “City of a Thousand Minarets” for its rich Islamic architecture.
+   <span id="dots"> ...</span>
+    <span id="more" class="hidden-text">
+ Located along the Nile River, Cairo is a bustling metropolis that serves as the political, cultural, and economic heart of the country. It is world-famous for its proximity to the ancient Pyramids of Giza and the Great Sphinx, symbols of Egypt’s Pharaonic past. Within the city, landmarks such as the Egyptian Museum, the historic Islamic Cairo district, and the Coptic Christian quarter showcase its diverse heritage. Despite its modern growth, Cairo retains a deep connection to history, making it a place where ancient civilization and contemporary life coexist.
+
+ </span>
+</p><a href="https://en.wikipedia.org/wiki/Cairo" target="_blank">Learn more here</a>.</p></div></article>
+        <article class="dest-card" data-category="cultural"><img src="https://images.unsplash.com/photo-1502602898657-3e91760cbb34?ixid=5" alt="Athens"><div class="dest-body"><h3>Athens, Greece</h3><p>
+Athens is the capital of Greece and one of the world’s oldest cities, often referred to as the “cradle of Western civilization” and the birthplace of democracy.
+   <span id="dots"> ...</span>
+    <span id="more" class="hidden-text">
+ With a history spanning over 3,000 years, Athens is home to some of the most iconic landmarks of the ancient world, including the Acropolis, the Parthenon, and the Temple of Olympian Zeus. The city is also known for its rich contributions to philosophy, art, and science through figures like Socrates, Plato, and Aristotle. Today, Athens blends its historic past with modern urban life, offering vibrant neighborhoods, lively markets, and a thriving café culture. As both a cultural and political hub, Athens continues to represent the enduring legacy of ancient Greece while embracing the energy of a contemporary European capital.
+
+ </span>
+</p><a href="https://en.wikipedia.org/wiki/Athens" target="_blank">Learn more here</a>.</p></div></article>
+        <article class="dest-card" data-category="cultural"><img src="https://uploads.onecompiler.io/43u2wz3qr/43u2w48v5/hf.jpg" alt="Jerusalem"><div class="dest-body"><h3>Jerusalem, Israel</h3><p>
+Jerusalem is one of the oldest and most significant cities in the world, revered as a holy city by Judaism, Christianity, and Islam.
+   <span id="dots"> ...</span>
+    <span id="more" class="hidden-text">
+ Located in the Middle East, it has been a center of spirituality, history, and conflict for thousands of years. The city is home to sacred landmarks such as the Western Wall, the Church of the Holy Sepulchre, and the Dome of the Rock, drawing millions of pilgrims and visitors each year. Beyond its religious importance, Jerusalem also serves as a political and cultural hub, with a vibrant mix of ancient quarters, bustling markets, and modern institutions. Rich in heritage yet deeply contested, Jerusalem stands as a city where faith, history, and modern life converge in powerful and complex ways.
+
+ </span>
+</p>
+<a href="https://en.wikipedia.org/wiki/Jerusalem" target="_blank">Learn more here</a>.</p></div></article>
+        <article class="dest-card" data-category="cultural"><img src="https://uploads.onecompiler.io/43u2wz3qr/43u2w48v5/varanasi.jpg" alt="Varanasi"><div class="dest-body"><h3>Varanasi, India</h3><p>
+Varanasi, also known as Kashi or Benares, is one of the oldest continuously inhabited cities in the world and is considered the spiritual capital of India.
+   <span id="dots"> ...</span>
+    <span id="more" class="hidden-text">
+ Located on the banks of the sacred Ganges River in Uttar Pradesh, it is a major pilgrimage site for Hindus, who believe that bathing in the river can cleanse sins and that dying in Varanasi leads to liberation (moksha). The city is famous for its ghats—steps leading down to the river—where rituals, prayers, and cremation ceremonies take place daily. Varanasi is also a center of learning, music, and traditional arts, with a rich heritage that has inspired poets, saints, and scholars for centuries. With its deep spiritual atmosphere, vibrant temples, and timeless traditions, Varanasi stands as a symbol of India’s ancient culture and religious devotion.
+
+ </span>
+</p><a href="https://en.wikipedia.org/wiki/Varanasi" target="_blank">Learn more here</a>.</p></div></article>
+        <article class="dest-card" data-category="cultural"><img src="https://images.unsplash.com/photo-1505761671935-60b3a7427bad?ixid=6" alt="Machu Picchu"><div class="dest-body"><h3>Machu Picchu, Peru</h3><p>
+Machu Picchu is an ancient Incan citadel located high in the Andes Mountains of Peru, often regarded as one of the most iconic archaeological sites in the world.
+   <span id="dots"> ...</span>
+    <span id="more" class="hidden-text">
+ Built in the 15th century and later abandoned, it remained hidden from the outside world until its rediscovery in 1911 by Hiram Bingham. The site is famous for its breathtaking setting, perched on a mountain ridge above the Urubamba River, surrounded by lush green peaks and misty clouds. Machu Picchu showcases the advanced engineering and architectural skills of the Inca civilization, with its terraces, temples, and stone structures harmoniously blending into the natural landscape. Today, it is a UNESCO World Heritage Site and one of the New Seven Wonders of the World, attracting millions of visitors seeking history, culture, and awe-inspiring scenery.
+
+ </span>
+</p><a href="https://en.wikipedia.org/wiki/Machu" target="_blank">Learn more here</a>.</p></div></article>
+        <article class="dest-card" data-category="cultural"><img src="https://uploads.onecompiler.io/43u2wz3qr/43u2w48v5/jordan.jpg" alt="Petra"><div class="dest-body"><h3>Petra, Jordan</h3><p>
+Petra, located in southern Jordan, is an ancient city carved into rose-red sandstone cliffs and is often called the “Rose City” for its striking color.
+   <span id="dots"> ...</span>
+    <span id="more" class="hidden-text">
+ Once the thriving capital of the Nabataean kingdom around the 4th century BCE, Petra was a major trading hub connecting Arabia, Egypt, and the Mediterranean. The city is renowned for its monumental rock-cut architecture, including the iconic Treasury (Al-Khazneh) and the Monastery (Ad-Deir), as well as its intricate water systems that supported life in the desert. Rediscovered by the Western world in the 19th century, Petra has since become a UNESCO World Heritage Site and one of the New Seven Wonders of the World. With its breathtaking landscapes and rich history, Petra remains a symbol of human ingenuity and resilience in one of the world’s most remarkable archaeological settings.
+
+ </span>
+</p><a href="https://en.wikipedia.org/wiki/Petra" target="_blank">Learn more here</a>.</p></div></article>
+        <article class="dest-card" data-category="cultural"><img src="https://uploads.onecompiler.io/43u2wz3qr/43u2w48v5/istanbul.jpg" alt="Istanbul"><div class="dest-body"><h3>Istanbul, Turkey</h3><p>
+Istanbul is the largest city in Turkey and one of the most historically and culturally significant cities in the world, uniquely spanning two continents—Europe and Asia—across the Bosporus Strait.
+   <span id="dots"> ...</span>
+    <span id="more" class="hidden-text">
+ Formerly known as Byzantium and later Constantinople, it served as the capital of the Byzantine and Ottoman Empires, making it a crossroads of civilizations for over 2,000 years. The city is renowned for its architectural and cultural landmarks, including the Hagia Sophia, the Blue Mosque, and the Topkapi Palace, as well as its bustling Grand Bazaar. Today, Istanbul blends its rich heritage with modern life, offering a vibrant mix of tradition, contemporary art, cuisine, and commerce. With its unique geography, layered history, and dynamic energy, Istanbul stands as a bridge between East and West, past and present.
+
+ </span>
+</p><a href="https://en.wikipedia.org/wiki/Istanbul" target="_blank">Learn more here</a>.</p></div></article>
+        <article class="dest-card" data-category="cultural"><img src="https://images.unsplash.com/photo-1530789253388-582c481c54b0?ixid=9" alt="Angkor Wat"><div class="dest-body"><h3>Angkor Wat, Cambodia</h3><p>
+Angkor Wat is a vast temple complex in Cambodia and one of the greatest monuments of human history, celebrated as the largest religious structure in the world.
+   <span id="dots"> ...</span>
+    <span id="more" class="hidden-text">
+ Built in the early 12th century by King Suryavarman II, it was originally dedicated to the Hindu god Vishnu before gradually becoming a Buddhist site, which it remains today. The temple is renowned for its stunning Khmer architecture, intricate bas-reliefs, and symbolic design that reflects Hindu cosmology, with its central towers representing the mythical Mount Meru. Surrounded by a vast moat and lush forests, Angkor Wat is not only a spiritual center but also a symbol of Cambodia’s cultural identity, proudly featured on the national flag. Recognized as a UNESCO World Heritage Site, it attracts millions of visitors each year who come to witness its grandeur and spiritual aura.
+
+ </span>
+</p><a href="https://en.wikipedia.org/wiki/Angkor Wat" target="_blank">Learn more here</a>.</p></div></article>
+        <article class="dest-card" data-category="cultural"><img src="https://uploads.onecompiler.io/43u2wz3qr/43u2w48v5/ara.jpg" alt="Marrakech"><div class="dest-body"><h3>Marrakech, Morocco</h3><p>
+Marrakech is a vibrant city in Morocco, often called the “Red City” because of its distinctive reddish-pink walls and buildings.
+   <span id="dots"> ...</span>
+    <span id="more" class="hidden-text">
+ Founded in the 11th century, it has long been a major center of trade, culture, and religion in North Africa. The city is world-famous for its bustling medina, a UNESCO World Heritage Site, where winding alleys lead to lively souks filled with spices, textiles, and handicrafts. Iconic landmarks include the Koutoubia Mosque, the Saadian Tombs, and the beautiful Majorelle Garden. Marrakech is also known for its lively Djemaa el-Fna square, where street performers, food stalls, and traditional storytellers create an unforgettable atmosphere. Blending history, tradition, and modern luxury, Marrakech remains a captivating gateway to Moroccan culture and heritage.
+
+ </span>
+</p><a href="https://en.wikipedia.org/wiki/Marrakech" target="_blank">Learn more here</a>.</p></div></article>
+       <!-- NATURE (10) -->
+        <article class="dest-card" data-category="nature"><img src="https://images.unsplash.com/photo-1469474968028-56623f02e42e" alt="Himalayas"><div class="dest-body"><h3>Himalayas, Nepal</h3><p>
+The Himalayas are the highest and one of the most majestic mountain ranges in the world, stretching across five countries: India, Nepal, Bhutan, China (Tibet), and Pakistan.
+   <span id="dots"> ...</span>
+    <span id="more" class="hidden-text">
+ They are home to Mount Everest, the tallest peak on Earth, as well as numerous other towering summits, glaciers, and valleys. Formed millions of years ago by the collision of the Indian and Eurasian tectonic plates, the Himalayas continue to rise slowly each year. Beyond their natural beauty, they hold immense cultural and spiritual significance, being revered in Hinduism and Buddhism and dotted with sacred sites, monasteries, and pilgrimage routes. The range also plays a crucial role in regulating climate and supplying water to major rivers that sustain millions of people in Asia. With their breathtaking landscapes, diverse wildlife, and deep spiritual aura, the Himalayas symbolize both the power of nature and the quest for human endurance and exploration.
+
+ </span>
+</p><a href="https://en.wikipedia.org/wiki/Himalayas" target="_blank">Learn more here</a>.</p></div></article>
+        <article class="dest-card" data-category="nature"><img src="https://images.unsplash.com/photo-1504196606672-aef5c9cefc92" alt="Swiss Alps"><div class="dest-body"><h3>Swiss Alps, Switzerland</h3><p>
+The Swiss Alps are a world-famous mountain range in Switzerland, renowned for their breathtaking beauty, snow-capped peaks, and picturesque valleys.
+   <span id="dots"> ...</span>
+    <span id="more" class="hidden-text">
+ Part of the greater Alpine range in Europe, they are home to some of the continent’s most iconic mountains, such as the Matterhorn and the Eiger, as well as pristine lakes and charming alpine villages. The region is a year-round destination, attracting visitors for skiing, snowboarding, and winter sports in the colder months, while offering hiking, climbing, and scenic train journeys during summer. Beyond their natural allure, the Swiss Alps play an important role in Swiss culture and identity, symbolizing purity, adventure, and tradition. With their combination of dramatic landscapes, outdoor recreation, and well-preserved heritage, the Swiss Alps remain one of the most enchanting and celebrated mountain regions in the world.
+
+ </span>
+</p>
+Kyla
+<a href="https://en.wikipedia.org/wiki/Swiss Alps" target="_blank">Learn more here</a>.</p></div></article>
+        <article class="dest-card" data-category="nature"><img src="https://images.unsplash.com/photo-1501785888041-af3ef285b470" alt="Grand Canyon"><div class="dest-body"><h3>Grand Canyon, USA</h3><p>
+The Grand Canyon, located in Arizona, USA, is one of the most awe-inspiring natural wonders of the world, carved by the Colorado River over millions of years.
+   <span id="dots"> ...</span>
+    <span id="more" class="hidden-text">
+ Stretching about 446 kilometers (277 miles) long, up to 29 kilometers (18 miles) wide, and over 1,800 meters (6,000 feet) deep, it reveals a dramatic landscape of layered red rock formations that tell a geological story spanning nearly two billion years. The canyon is a UNESCO World Heritage Site and a major attraction within Grand Canyon National Park, drawing millions of visitors each year for sightseeing, hiking, rafting, and photography. Beyond its breathtaking views, it holds cultural and spiritual significance for Native American tribes such as the Havasupai, Hopi, and Navajo. With its vast scale and natural beauty, the Grand Canyon stands as a powerful symbol of nature’s artistry and time’s enduring force.
+
+ </span>
+</p><a href="https://en.wikipedia.org/wiki/Grand Canyon" target="_blank">Learn more here</a>.</p></div></article>
+        <article class="dest-card" data-category="nature"><img src="https://images.unsplash.com/photo-1441974231531-c6227db76b6e" alt="Banff"><div class="dest-body"><h3>Banff, Canada</h3><p>
+Banff is a picturesque town in Alberta, Canada, located within Banff National Park, the country’s first and one of its most famous national parks.
+   <span id="dots"> ...</span>
+    <span id="more" class="hidden-text">
+ Nestled in the Canadian Rockies, Banff is renowned for its stunning mountain scenery, turquoise lakes like Lake Louise and Moraine Lake, and abundant wildlife, including elk, bears, and mountain goats. It is a year-round destination, offering world-class skiing and snowboarding in winter, as well as hiking, canoeing, and hot springs in summer. The town itself combines small-town charm with modern amenities, featuring cozy lodges, shops, and restaurants that welcome millions of visitors annually. With its breathtaking landscapes, outdoor adventures, and protected wilderness, Banff stands as a symbol of Canada’s natural beauty and commitment to conservation.
+
+ </span>
+</p><a href="https://en.wikipedia.org/wiki/Banff" target="_blank">Learn more here</a>.</p></div></article>
+        <article class="dest-card" data-category="nature"><img src="https://images.unsplash.com/photo-1518684079-3c830dcef090?ixid=11" alt="Iceland"><div class="dest-body"><h3>Iceland</h3><p>
+Iceland is a Nordic island nation in the North Atlantic Ocean, celebrated for its dramatic natural landscapes shaped by volcanic and glacial activity.
+   <span id="dots"> ...</span>
+    <span id="more" class="hidden-text">
+ Known as the “Land of Fire and Ice,” it features active volcanoes, geysers, hot springs, lava fields, glaciers, and stunning waterfalls. The country is sparsely populated, with most people living in the capital city, Reykjavík, which is also famous for its vibrant culture, music, and art scene. Iceland is a haven for nature lovers, offering unique experiences such as bathing in the Blue Lagoon, witnessing the Northern Lights, and exploring black-sand beaches and ice caves. With its strong commitment to renewable energy, rich Viking heritage, and breathtaking scenery, Iceland is both a land of natural wonder and a model of sustainable living.
+
+ </span>
+</p><a href="https://en.wikipedia.org/wiki/Iceland" target="_blank">Learn more here</a>.</p></div></article>
+        <article class="dest-card" data-category="nature"><img src="https://uploads.onecompiler.io/43u2wz3qr/43u2w48v5/milford.jpg" alt="New Zealand"><div class="dest-body"><h3>Milford Sound, New Zealand</h3><p>
+Milford Sound is a spectacular fjord located in Fiordland National Park on New Zealand’s South Island, often described as the country’s most iconic natural wonder.
+   <span id="dots"> ...</span>
+    <span id="more" class="hidden-text">
+ Carved by glaciers during the Ice Age, the fjord is surrounded by towering cliffs, lush rainforests, and dramatic peaks, including the famous Mitre Peak which rises sharply from the water. Known for its breathtaking beauty, Milford Sound features cascading waterfalls, such as Stirling and Bowen Falls, as well as rich wildlife, including dolphins, seals, and penguins. Visitors can explore the fjord through boat cruises, kayaking, or hiking the renowned Milford Track. With its stunning scenery, unspoiled wilderness, and tranquil atmosphere, Milford Sound is often called the “eighth wonder of the world” and remains one of New Zealand’s most treasured destinations.
+
+ </span>
+</p><a href="https://en.wikipedia.org/wiki/Milford Sound" target="_blank">Learn more here</a>.</p></div></article>
+        <article class="dest-card" data-category="nature"><img src="https://uploads.onecompiler.io/43u2wz3qr/43u2w48v5/amzon.jpg" alt="Amazon"><div class="dest-body"><h3>Amazon Rainforest, Brazil</h3><p>
+The Amazon is the largest tropical rainforest in the world, spanning across nine South American countries, with the majority located in Brazil.
+   <span id="dots"> ...</span>
+    <span id="more" class="hidden-text">
+ Known as the “lungs of the Earth,” it plays a vital role in regulating the global climate and producing a significant portion of the world’s oxygen. The Amazon is home to the Amazon River, one of the longest and most powerful rivers on the planet, as well as an unparalleled diversity of wildlife, including jaguars, pink river dolphins, anacondas, and countless bird and insect species. It is also rich in indigenous cultures, with many communities still living in harmony with the forest. Despite its ecological importance, the Amazon faces threats from deforestation, mining, and climate change. As both a natural treasure and a global environmental lifeline, the Amazon stands as one of the most critical ecosystems on Earth.
+
+ </span>
+</p><a href="https://en.wikipedia.org/wiki/Amazon Rainforest" target="_blank">Learn more here</a>.</p></div></article>
+        <article class="dest-card" data-category="nature"><img src="https://images.unsplash.com/photo-1482192596544-9eb780fc7f66" alt="Patagonia"><div class="dest-body"><h3>Patagonia, Argentina</h3><p>
+Patagonia is a vast and remote region at the southern tip of South America, shared by Argentina and Chile, renowned for its dramatic landscapes and unspoiled wilderness.
+   <span id="dots"> ...</span>
+    <span id="more" class="hidden-text">
+ It is characterized by towering mountains, massive glaciers, windswept plains, and crystal-clear lakes, making it a paradise for adventurers and nature lovers. Iconic sites include Argentina’s Los Glaciares National Park, home to the famous Perito Moreno Glacier, and Chile’s Torres del Paine National Park, with its striking granite peaks. Patagonia is also rich in wildlife, including guanacos, condors, pumas, and diverse marine life along its coasts. Sparsely populated and largely untouched, it offers opportunities for trekking, climbing, and exploring some of the most pristine environments in the world. With its rugged beauty and sense of remoteness, Patagonia is often regarded as one of the last great wildernesses on Earth.
+
+ </span>
+</p><a href="https://en.wikipedia.org/wiki/Patagonia" target="_blank">Learn more here</a>.</p></div></article>
+        <article class="dest-card" data-category="nature"><img src="https://uploads.onecompiler.io/43u2wz3qr/43u2w48v5/tanzania.jpg" alt="Serengeti"><div class="dest-body"><h3>Serengeti, Tanzania</h3><p>
+The Serengeti is a vast ecosystem in East Africa, primarily located in northern Tanzania with parts extending into Kenya, and is one of the most famous wildlife regions in the world.
+   <span id="dots"> ...</span>
+    <span id="more" class="hidden-text">
+ Covering endless savannas, acacia woodlands, and river valleys, it is best known for the Great Migration, where over a million wildebeest, zebras, and gazelles move across the plains in search of fresh grazing, followed closely by predators like lions, cheetahs, and hyenas. The Serengeti is home to the “Big Five” (lion, leopard, elephant, buffalo, and rhinoceros) and an incredible diversity of birds and other animals, making it a top destination for safaris. Recognized as a UNESCO World Heritage Site, it symbolizes the beauty and importance of natural ecosystems and wildlife conservation. With its breathtaking landscapes and unparalleled animal encounters, the Serengeti stands as one of the greatest natural spectacles on Earth.
+
+ </span>
+</p><a href="https://en.wikipedia.org/wiki/Serengeti" target="_blank">Learn more here</a>.</p></div></article>
+        <article class="dest-card" data-category="nature"><img src="https://uploads.onecompiler.io/43u2wz3qr/43u2w48v5/yellow.jpg" alt="Yellowstone"><div class="dest-body"><h3>Yellowstone, USA</h3><p>
+Yellowstone is the first and oldest national park in the world, established in 1872, and is located primarily in Wyoming, with parts extending into Montana and Idaho in the United States.
+   <span id="dots"> ...</span>
+    <span id="more" class="hidden-text">
+ Renowned for its extraordinary geothermal features, the park is home to famous landmarks like Old Faithful geyser, the Grand Prismatic Spring, and hundreds of hot springs, mud pots, and fumaroles created by underlying volcanic activity. Yellowstone also boasts dramatic landscapes of canyons, waterfalls, rivers, and vast forests, providing habitats for diverse wildlife, including bison, elk, bears, wolves, and eagles. Covering over 8,900 square kilometers, it is a UNESCO World Heritage Site and a symbol of nature conservation. With its combination of geological wonders, scenic beauty, and thriving ecosystems, Yellowstone remains one of the most remarkable natural treasures in the world.
+
+ </span>
+</p>
+<a href="https://en.wikipedia.org/wiki/Yellowstone" target="_blank">Learn more here</a>.</p></div></article>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-grid">
+      <div><a class="brand" href="index.html">Esnupi</a><p>© <span id="year3"></span> Esnupi</p></div>
+      <div class="footer-links"><a href="about.html">About</a><a href="contact.html">Contact</a></div>
+    </div>
+  </footer>
+
+  <script>document.getElementById('year3').textContent = new Date().getFullYear();</script>
+  <script src="script.js"></script>
+</body>
+</html>
