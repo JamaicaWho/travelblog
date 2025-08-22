@@ -1,0 +1,135 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Esnupi — Travel Blog</title>
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+  <style>
+  
+    /* 🔹 Moving Background Image */
+    body {
+      margin: 0;
+      font-family: 'Inter', sans-serif;
+      color: #fff;
+      background: url("https://uploads.onecompiler.io/439puaant/43tuc5egk/videoframe_29448.png") repeat-x;
+      background-size: cover;
+      animation: moveBg 40s linear infinite; /* ✅ applied here */
+    }
+
+    @keyframes moveBg {
+      from { background-position: 0 0; }
+      to { background-position: -2000px 0; } /* move left */
+    }
+
+    /* 🔹 Glass effect so text stays readable */
+    header, main, footer {
+      background: rgba(0, 0, 0, 0.55);
+      backdrop-filter: blur(6px);
+      border-radius: 10px;
+      margin: 10px;
+      padding: 15px;
+    }
+
+    h2, h3, p {
+      color: #f0f0f0;
+    }
+    
+    
+  </style>
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="brand" href="index.html">Esnupi</a>
+      <nav class="nav">
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="stories.html" class="active">Latest Post</a></li>
+          <li><a href="destinations.html">Destinations</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="contact.html" class="btn-outline">Contact</a></li>
+        </ul>
+      </nav>
+      <button class="nav-toggle" aria-label="Open menu" id="navToggle">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </header>
+
+  <main>
+    <section id="latest" class="container section">
+      <h2 class="section-title">Latest Stories</h2>
+      <div class="cards">
+        <article class="card">
+          <img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?q=80&w=1200&auto=format&fit=crop" alt="">
+          <div class="card-body">
+            <h3>Island Hopping in the Philippines</h3>
+            <p>How to plan a 7-day island escape on a budget — routes, tips and must-see beaches.</p>
+            <div class="card-meta">
+              <span>Aug 5, 2025</span>
+              <a href="destinations.html" class="read-more">Read</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="card">
+          <img src="https://images.unsplash.com/photo-1501785888041-af3ef285b470?q=80&w=1200&auto=format&fit=crop" alt="">
+          <div class="card-body">
+            <h3>Street Food Guide: Bangkok</h3>
+            <p>Where to eat right, what to try, and how to avoid tourist traps.</p>
+            <div class="card-meta">
+              <span>Jul 29, 2025</span>
+              <a href="destinations.html" class="read-more">Read</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="card">
+          <img src="https://images.unsplash.com/photo-1518684079-10a9f3ef7a1a?q=80&w=1200&auto=format&fit=crop" alt="">
+          <div class="card-body">
+            <h3>Hidden Gems of Kyoto</h3>
+            <p>Quiet temples, seasonal walks and where to stay away from the crowds.</p>
+            <div class="card-meta">
+              <span>Jun 16, 2025</span>
+              <a href="destinations.html" class="read-more">Read</a>
+            </div>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section class="container newsletter section">
+      <div class="newsletter-inner">
+        <div>
+          <h3>Subscribe for fresh guides & deals</h3>
+          <p>Get monthly travel tips, itinerary templates, and exclusive discounts.</p>
+        </div>
+        <form class="newsletter-form" onsubmit="event.preventDefault(); alert('Subscribed — thanks!');">
+          <input type="email" placeholder="you@email.com" required>
+          <button class="btn-primary" type="submit">Subscribe</button>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-grid">
+      <div>
+        <a class="brand" href="index.html">Esnupi</a>
+        <p>Modern travel stories & curated guides. © <span id="year"></span> Esnupi</p>
+      </div>
+      <div class="footer-links">
+        <a href="about.html">About</a>
+        <a href="destinations.html">Destinations</a>
+        <a href="contact.html">Contact</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
